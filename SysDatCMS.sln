@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysDatCMS", "SysDatCMS\SysDatCMS.csproj", "{3FF05E50-6E4C-4D3D-8395-7278358857AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FF05E50-6E4C-4D3D-8395-7278358857AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FF05E50-6E4C-4D3D-8395-7278358857AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FF05E50-6E4C-4D3D-8395-7278358857AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FF05E50-6E4C-4D3D-8395-7278358857AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7495FBC8-5B60-4F8C-B3F4-283F6D3922F4}
+	EndGlobalSection
+EndGlobal
