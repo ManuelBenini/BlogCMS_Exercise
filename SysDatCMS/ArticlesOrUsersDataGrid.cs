@@ -135,29 +135,30 @@ namespace SysDatCMS
                 checkEdit1.Visible = false;
             }
         }
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            //Al click su una riga nella GridView viene letto il valore presente nella colonna ruolo. Se il ruolo é Super Admin, non sará possibile modificarlo.
+            if (!_isArticle)
+            {
+                var colRole = gridView1.Columns["Ruolo"];
+
+                if (colRole != null)
+                {
+                    var selectedUserRole = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colRole) as Role;
+                    if (selectedUserRole.Id == 3)
+                    {
+                        gridView1.Columns["Ruolo"].OptionsColumn.AllowEdit = false;
+                    }
+                    else
+                    {
+                        gridView1.Columns["Ruolo"].OptionsColumn.AllowEdit = true;
+                    }
+                }
+            }
+        }
         private void disabledCellEvents1_ProcessingCell(object sender, DevExpress.Utils.Behaviors.Common.ProcessCellEventArgs e)
         {
             //Evento che avviene alla lettura delle celle (quando la GridView viene generata e quando vengono effettuate operazioni sulle celle, creato con il controllo BehaviourManager
-        }
-        private void gridView1_ShowingEditor(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            //Al click su un ruolo nella GridView ne viene letto il valore. Se il ruolo é Super Admin, non sará possibile modificarlo.
-            //if (!_isArticle)
-            //{
-            //    var colRole = gridView1.Columns["Ruolo"];
-                
-            //    var selectedUserRole = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colRole) as Role;
-            //    if (selectedUserRole.Id == 3)
-            //    {
-            //        gridView1.Columns["Ruolo"].OptionsColumn.AllowEdit = false;
-            //        //e.Cancel = true;
-            //    }
-            //    else
-            //    {
-            //        gridView1.Columns["Ruolo"].OptionsColumn.AllowEdit = true;
-            //        //e.Cancel = false;
-            //    }
-            //}  
         }
 
 
@@ -233,7 +234,6 @@ namespace SysDatCMS
                 }
             }
         }
-        
         private void GoToArticleOrUserDetails()
         {
             //Vado nella pagina dettaglio di un articolo o di un utente.
@@ -262,31 +262,6 @@ namespace SysDatCMS
                     ArticlesOrUsersGrid.DataSource = User.GetUsers();
                     this.Show();
                 }
-            }
-        }
-
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (!_isArticle)
-            {
-                var colRole = gridView1.Columns["Ruolo"];
-
-                if (colRole != null)
-                {
-                    var selectedUserRole = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, colRole) as Role;
-                    if (selectedUserRole.Id == 3)
-                    {
-                        gridView1.Columns["Ruolo"].OptionsColumn.AllowEdit = false;
-                        //e.Cancel = true;
-                    }
-                    else
-                    {
-                        gridView1.Columns["Ruolo"].OptionsColumn.AllowEdit = true;
-                        //e.Cancel = false;
-                    }
-                }
-
-                
             }
         }
     }

@@ -99,7 +99,6 @@ namespace SysDatCMS
             this.updateCol});
             this.gridView1.GridControl = this.ArticlesOrUsersGrid;
             this.gridView1.Name = "gridView1";
-            this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
