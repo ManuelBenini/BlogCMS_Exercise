@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.IO;
 
 namespace SysDatCMS.Classes
 {
@@ -22,22 +16,19 @@ namespace SysDatCMS.Classes
             Path = path;
             Name = name;
 
-            GraphicImage = Image.FromFile(path + name);
-        }
-
-        public static bool CreateImageAndPushInPivotTable(string imageName, int articleId)
-        {
-            using (var con = new SqlConnection(DbHelper.ConnStr))
+            using (FileStream stream = new FileStream(path + name, FileMode.Open))
             {
-                con.Open();
-                using (var cmd = new SqlCommand("CreateImageAndPushInPivotTableSP", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ImageName", imageName);
-                    cmd.Parameters.AddWithValue("@articleId", articleId);
-                    return cmd.ExecuteNonQuery() > 0;
-                }
+                GraphicImage = Image.FromStream(stream);
             }
+
+            //TODO Da chiedere: Qual'e il metodo migliore?
+
+            //using (var bmpTemp = new Bitmap(path + name))
+            //{
+            //    GraphicImage = new Bitmap(bmpTemp);
+            //}
+
+            //GraphicImage = Image.FromFile(path + name);
         }
     }
 }

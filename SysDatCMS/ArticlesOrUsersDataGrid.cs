@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using SysDatCMS.Classes;
+using SysDatCMS.Enums;
 using System;
 using System.Windows.Forms;
 
@@ -9,7 +10,6 @@ namespace SysDatCMS
     public partial class ArticlesOrUsersDataGrid : DevExpress.XtraEditors.XtraForm
     {
         private bool _isArticle = true;
-        private bool _check = true;
 
         /// <summary>
         /// Passando true la dataGridView si riempirà di articoli. Passando false si riempirà di utenti.
@@ -30,7 +30,7 @@ namespace SysDatCMS
             {
                 Article selectedArticle = gridView1.GetRow(gridView1.GetSelectedRows()[0]) as Article;
 
-                if (Article.CreateOrModifyArticle(selectedArticle.Id, selectedArticle.Titolo, selectedArticle.Testo, selectedArticle.Status.Id, selectedArticle.Autore.Id) > 0)
+                if (Article.ModifyArticleWithoutImages(selectedArticle.Id, selectedArticle.Titolo, selectedArticle.Testo, selectedArticle.Status.Id, selectedArticle.Autore.Id))
                 {
                     XtraMessageBox.Show("Articolo modificato con successo!", "Modifica articolo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -69,37 +69,45 @@ namespace SysDatCMS
         {
             if (_isArticle == true)
             {
-                Article selectedArticle = gridView1.GetRow(gridView1.GetSelectedRows()[0]) as Article;
+                DialogResult dialogResult = XtraMessageBox.Show("Sei sicuro di voler eliminare l'articolo?", "Eliminazione", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Article selectedArticle = gridView1.GetRow(gridView1.GetSelectedRows()[0]) as Article;
 
-                if (Article.DeleteArticleById(selectedArticle.Id))
-                {
-                    XtraMessageBox.Show("Articolo eliminato con successo!", "Eliminazione articolo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    XtraMessageBox.Show("Articolo non eliminato, errore", "Eliminazione articolo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (Article.DeleteArticleById(selectedArticle.Id))
+                    {
+                        XtraMessageBox.Show("Articolo eliminato con successo!", "Eliminazione articolo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Articolo non eliminato, errore", "Eliminazione articolo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
 
                 GridUpdate();
             }
             else
             {
-                User selectedUser = gridView1.GetRow(gridView1.GetSelectedRows()[0]) as User;
-
-                if (CMSState.CurrentUserId != selectedUser.Id)
+                DialogResult dialogResult = XtraMessageBox.Show("Sei sicuro di voler eliminare l'utente?", "Eliminazione", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    if (User.DeleteUser(selectedUser.Id))
+                    User selectedUser = gridView1.GetRow(gridView1.GetSelectedRows()[0]) as User;
+
+                    if (CMSState.CurrentUserId != selectedUser.Id)
                     {
-                        XtraMessageBox.Show("Utente eliminato con successo!", "Eliminazione utente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (User.DeleteUser(selectedUser.Id))
+                        {
+                            XtraMessageBox.Show("Utente eliminato con successo!", "Eliminazione utente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Utente non eliminato, errore", "Eliminazione utente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        XtraMessageBox.Show("Utente non eliminato, errore", "Eliminazione utente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        XtraMessageBox.Show("Non è possibile effettuare l'eliminazione del proprio profilo mentre si è loggati", "Eliminazione utente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                }
-                else
-                {
-                    XtraMessageBox.Show("Non è possibile effettuare l'eliminazione del proprio profilo mentre si è loggati", "Eliminazione utente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 GridUpdate();
@@ -108,13 +116,6 @@ namespace SysDatCMS
         private void GoToModifyBtn_Click(object sender, EventArgs e)
         {
             GoToArticleOrUserDetails();
-        }
-        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-            //Al variare del valore di _check, verranno visualizzati tutti gli articoli oppure solo quelli sospesi o cancellati.
-            _check = !_check;
-
-            GridUpdate();
         }
         private void ArticleOrUserDataGrid_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -127,12 +128,12 @@ namespace SysDatCMS
             if (!_isArticle)
             {
                 FormTitle.Text = "Visualizzazione utenti";
-                checkEdit1.Visible = false;
+                StatusGroup.Visible = false;
             }
 
             if (CMSState.CurrentUserRoleId == 1)
             {
-                checkEdit1.Visible = false;
+                StatusGroup.Visible = false;
             }
         }
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -156,6 +157,10 @@ namespace SysDatCMS
                 }
             }
         }
+        private void StatusGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridUpdate();
+        }
         private void disabledCellEvents1_ProcessingCell(object sender, DevExpress.Utils.Behaviors.Common.ProcessCellEventArgs e)
         {
             //Evento che avviene alla lettura delle celle (quando la GridView viene generata e quando vengono effettuate operazioni sulle celle, creato con il controllo BehaviourManager
@@ -165,7 +170,7 @@ namespace SysDatCMS
         private void GridUpdate()
         {
 
-            if (_isArticle == true)
+            if (_isArticle)
             {
                 //Valorizzo la gridView con gli articoli di tutti gli utenti, creando delle colonne contenenti bottoni per delle operazioni.
                 ArticlesOrUsersGrid.BeginUpdate();
@@ -175,11 +180,25 @@ namespace SysDatCMS
                     ArticlesOrUsersGrid.DataSource = null;
                     if (CMSState.CurrentUserRoleId == 1)
                     {
-                        ArticlesOrUsersGrid.DataSource = Article.GetOnlyPublishedArticles();
+                        ArticlesOrUsersGrid.DataSource = Article.GetArticles(StatusEnum.Published);
                     }
                     else
                     {
-                        ArticlesOrUsersGrid.DataSource = Article.GetAllArticlesOrNotPublished(_check);
+                        switch (StatusGroup.SelectedIndex)
+                        {
+                            case 1:
+                                ArticlesOrUsersGrid.DataSource = Article.GetArticles(StatusEnum.Published);
+                                break;
+                            case 2:
+                                ArticlesOrUsersGrid.DataSource = Article.GetArticles(StatusEnum.Suspended);
+                                break;
+                            case 3:
+                                ArticlesOrUsersGrid.DataSource = Article.GetArticles(StatusEnum.Deleted);
+                                break;
+                            default:
+                                ArticlesOrUsersGrid.DataSource = Article.GetArticles(StatusEnum.all);
+                                break;
+                        }
                     }
                     StatusLookUpEditBtn.DataSource = Status.GetStatuses();
                     gridView1.Columns["Status"].ColumnEdit = StatusLookUpEditBtn;
@@ -188,6 +207,7 @@ namespace SysDatCMS
                     {
                         gridView1.OptionsBehavior.Editable = true;
                         gridView1.Columns["Id"].OptionsColumn.AllowEdit = false;
+                        gridView1.Columns["Autore"].OptionsColumn.AllowEdit = false;
                         GridColumn UpdateCol = new GridColumn() { Caption = "Aggiorna", Visible = true, FieldName = "UpdateCol" };
                         gridView1.Columns.Add(UpdateCol);
                         gridView1.Columns["UpdateCol"].ColumnEdit = UpdateBtn;
@@ -250,7 +270,7 @@ namespace SysDatCMS
 
                     articleDetails.ShowDialog();
 
-                    ArticlesOrUsersGrid.DataSource = Article.GetAllArticlesOrNotPublished(true);
+                    GridUpdate();
                     this.Show();
                 }
                 else
@@ -259,7 +279,7 @@ namespace SysDatCMS
                     this.Hide();
                     userDetails.ShowDialog();
 
-                    ArticlesOrUsersGrid.DataSource = User.GetUsers();
+                    GridUpdate();
                     this.Show();
                 }
             }

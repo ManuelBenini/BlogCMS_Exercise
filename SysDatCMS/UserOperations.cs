@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using SysDatCMS.Classes;
+using SysDatCMS.Enums;
 using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -10,9 +11,6 @@ namespace SysDatCMS
 {
     public partial class UserOperations : DevExpress.XtraEditors.XtraForm
     {
-
-        private string EmailPattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
-        private string PwdPattern = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
         private int _userId = 0;
 
         public UserOperations()
@@ -27,33 +25,6 @@ namespace SysDatCMS
             InitializeComponent();
 
             _userId = userId;
-        }
-
-        private void nameField_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-
-            if (Char.IsLetter(ch) || ch == 8 || ch == 32)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-        private void surnameField_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-
-            if (Char.IsLetter(ch) || ch == 8 || ch == 32)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
         }
         private void ReturnToLoginBtn_Click(object sender, EventArgs e)
         {
@@ -70,20 +41,11 @@ namespace SysDatCMS
 
                 if (userRole == null)
                 {
-                    // in caso di nuova registrazione, viene assegnato il ruolo di default che è Contributor
-                    var roles = Role.GetRoles();
-
-                    foreach (var role in roles)
-                    {
-                        if (role.Id == 1)
-                        {
-                            userRole = role;
-                        }
-                    }
+                    // in caso di nuova registrazione, viene assegnato il ruolo Contributor
+                    userRole = Role.GetRoleById(RolesEnum.Contributor);
                 }
 
                 bool IsDbOperationValid = User.AddOrUpdateUser(_userId, nameField.Text, surnameField.Text, emailField.Text, passwordField.Text, userRole.Id);
-
 
                 string finalMsg = IsDbOperationValid ?
                     $"L'utente è stato {textOperationMsg} correttamente." :
@@ -158,7 +120,7 @@ namespace SysDatCMS
             {
                 UserOperationsEP.SetError(emailField, "Non lasciare il campo vuoto", ErrorType.Warning);
             }
-            else if (Regex.IsMatch(emailField.Text, EmailPattern) == false)
+            else if (Regex.IsMatch(emailField.Text, CMSHelper.EmailPattern) == false)
             {
                 UserOperationsEP.SetError(emailField, "Inserire una mail valida", ErrorType.Warning);
             }
@@ -171,7 +133,7 @@ namespace SysDatCMS
             {
                 UserOperationsEP.SetError(passwordField, "Non lasciare il campo vuoto", ErrorType.Warning);
             }
-            else if (Regex.IsMatch(passwordField.Text, PwdPattern) == false)
+            else if (Regex.IsMatch(passwordField.Text, CMSHelper.PwdPattern) == false)
             {
                 UserOperationsEP.SetError(passwordField, "Inserire una password valida", ErrorType.Warning);
             }
@@ -179,20 +141,6 @@ namespace SysDatCMS
             {
                 UserOperationsEP.SetError(passwordField, "");
             }
-
-            //if (_userId != 0)
-            //{
-            //    var userRole = RoleLookUpEdit.EditValue as Role;
-
-            //    if (userRole.Id == 3)
-            //    {
-            //        UserOperationsEP.SetError(RoleLookUpEdit, "Seleziona un ruolo", ErrorType.Warning);
-            //    }
-            //    else
-            //    {
-            //        UserOperationsEP.SetError(RoleLookUpEdit, "");
-            //    }
-            //}
 
             return !UserOperationsEP.HasErrors;
         }

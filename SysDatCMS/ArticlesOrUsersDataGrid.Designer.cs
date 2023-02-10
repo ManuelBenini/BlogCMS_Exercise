@@ -49,10 +49,10 @@ namespace SysDatCMS
             this.articleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FormTitle = new DevExpress.XtraEditors.LabelControl();
             this.LogoutBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.disabledCellEvents1 = new DevExpress.Utils.Behaviors.Common.DisabledCellEvents(this.components);
+            this.StatusGroup = new DevExpress.XtraEditors.RadioGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ArticlesOrUsersGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UpdateBtn)).BeginInit();
@@ -63,15 +63,15 @@ namespace SysDatCMS
             ((System.ComponentModel.ISupportInitialize)(this.StatusLookUpEditBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.articleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusGroup.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ArticlesOrUsersGrid
             // 
             this.ArticlesOrUsersGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ArticlesOrUsersGrid.Location = new System.Drawing.Point(22, 127);
+            this.ArticlesOrUsersGrid.Location = new System.Drawing.Point(19, 103);
             this.ArticlesOrUsersGrid.MainView = this.gridView1;
             this.ArticlesOrUsersGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ArticlesOrUsersGrid.Name = "ArticlesOrUsersGrid";
@@ -81,7 +81,7 @@ namespace SysDatCMS
             this.GoToModifyBtn,
             this.RoleLookUpEditBtn,
             this.StatusLookUpEditBtn});
-            this.ArticlesOrUsersGrid.Size = new System.Drawing.Size(930, 345);
+            this.ArticlesOrUsersGrid.Size = new System.Drawing.Size(797, 280);
             this.ArticlesOrUsersGrid.TabIndex = 1;
             this.ArticlesOrUsersGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -97,6 +97,7 @@ namespace SysDatCMS
             this.colStatus,
             this.colTesto,
             this.updateCol});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.ArticlesOrUsersGrid;
             this.gridView1.Name = "gridView1";
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
@@ -105,60 +106,60 @@ namespace SysDatCMS
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 24;
+            this.colId.MinWidth = 21;
             this.colId.Name = "colId";
             this.colId.OptionsColumn.AllowEdit = false;
             this.colId.Visible = true;
             this.colId.VisibleIndex = 0;
-            this.colId.Width = 94;
+            this.colId.Width = 81;
             // 
             // colTitolo
             // 
             this.colTitolo.FieldName = "Titolo";
-            this.colTitolo.MinWidth = 24;
+            this.colTitolo.MinWidth = 21;
             this.colTitolo.Name = "colTitolo";
             this.colTitolo.Visible = true;
             this.colTitolo.VisibleIndex = 1;
-            this.colTitolo.Width = 94;
+            this.colTitolo.Width = 81;
             // 
             // colAutore
             // 
             this.colAutore.Caption = "Autore";
             this.colAutore.FieldName = "Autore";
-            this.colAutore.MinWidth = 24;
+            this.colAutore.MinWidth = 21;
             this.colAutore.Name = "colAutore";
             this.colAutore.Visible = true;
             this.colAutore.VisibleIndex = 2;
-            this.colAutore.Width = 94;
+            this.colAutore.Width = 81;
             // 
             // colStatus
             // 
             this.colStatus.FieldName = "Status";
             this.colStatus.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
-            this.colStatus.MinWidth = 24;
+            this.colStatus.MinWidth = 21;
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 3;
-            this.colStatus.Width = 94;
+            this.colStatus.Width = 81;
             // 
             // colTesto
             // 
             this.colTesto.FieldName = "Testo";
-            this.colTesto.MinWidth = 24;
+            this.colTesto.MinWidth = 21;
             this.colTesto.Name = "colTesto";
             this.colTesto.Visible = true;
             this.colTesto.VisibleIndex = 4;
-            this.colTesto.Width = 94;
+            this.colTesto.Width = 81;
             // 
             // updateCol
             // 
             this.updateCol.Caption = "Aggiorna";
             this.updateCol.ColumnEdit = this.UpdateBtn;
-            this.updateCol.MinWidth = 24;
+            this.updateCol.MinWidth = 21;
             this.updateCol.Name = "updateCol";
             this.updateCol.Visible = true;
             this.updateCol.VisibleIndex = 5;
-            this.updateCol.Width = 94;
+            this.updateCol.Width = 81;
             // 
             // UpdateBtn
             // 
@@ -228,10 +229,10 @@ namespace SysDatCMS
             this.FormTitle.Appearance.ForeColor = System.Drawing.Color.Black;
             this.FormTitle.Appearance.Options.UseFont = true;
             this.FormTitle.Appearance.Options.UseForeColor = true;
-            this.FormTitle.Location = new System.Drawing.Point(351, 31);
+            this.FormTitle.Location = new System.Drawing.Point(301, 25);
             this.FormTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FormTitle.Name = "FormTitle";
-            this.FormTitle.Size = new System.Drawing.Size(293, 36);
+            this.FormTitle.Size = new System.Drawing.Size(233, 29);
             this.FormTitle.TabIndex = 34;
             this.FormTitle.Text = "Visualizzazione articoli";
             // 
@@ -246,24 +247,13 @@ namespace SysDatCMS
             this.LogoutBtn.Appearance.Options.UseBorderColor = true;
             this.LogoutBtn.Appearance.Options.UseFont = true;
             this.LogoutBtn.Appearance.Options.UseForeColor = true;
-            this.LogoutBtn.Location = new System.Drawing.Point(813, 25);
+            this.LogoutBtn.Location = new System.Drawing.Point(697, 20);
             this.LogoutBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(139, 42);
+            this.LogoutBtn.Size = new System.Drawing.Size(119, 34);
             this.LogoutBtn.TabIndex = 3;
             this.LogoutBtn.Text = "Torna al menù";
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(22, 87);
-            this.checkEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Non pubblicati";
-            this.checkEdit1.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.CheckBox;
-            this.checkEdit1.Size = new System.Drawing.Size(113, 24);
-            this.checkEdit1.TabIndex = 2;
-            this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // userBindingSource
             // 
@@ -273,14 +263,31 @@ namespace SysDatCMS
             // 
             this.disabledCellEvents1.ProcessingCell += new System.EventHandler<DevExpress.Utils.Behaviors.Common.ProcessCellEventArgs>(this.disabledCellEvents1_ProcessingCell);
             // 
+            // StatusGroup
+            // 
+            this.StatusGroup.EditValue = 0;
+            this.StatusGroup.Location = new System.Drawing.Point(19, 67);
+            this.StatusGroup.Name = "StatusGroup";
+            this.StatusGroup.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.StatusGroup.Properties.Appearance.Options.UseBackColor = true;
+            this.StatusGroup.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.StatusGroup.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Tutti", true, 0),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pubblicati", true, 1),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Sospesi", true, 2),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Cancellati", true, 3)});
+            this.StatusGroup.Size = new System.Drawing.Size(325, 24);
+            this.StatusGroup.TabIndex = 35;
+            this.StatusGroup.SelectedIndexChanged += new System.EventHandler(this.StatusGroup_SelectedIndexChanged);
+            // 
             // ArticlesOrUsersDataGrid
             // 
             this.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 598);
-            this.Controls.Add(this.checkEdit1);
+            this.ClientSize = new System.Drawing.Size(836, 486);
+            this.Controls.Add(this.StatusGroup);
             this.Controls.Add(this.LogoutBtn);
             this.Controls.Add(this.FormTitle);
             this.Controls.Add(this.ArticlesOrUsersGrid);
@@ -300,9 +307,9 @@ namespace SysDatCMS
             ((System.ComponentModel.ISupportInitialize)(this.StatusLookUpEditBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.articleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatusGroup.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +321,6 @@ namespace SysDatCMS
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.LabelControl FormTitle;
         private DevExpress.XtraEditors.SimpleButton LogoutBtn;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit UpdateBtn;
         private System.Windows.Forms.BindingSource articleBindingSource;
         private System.Windows.Forms.BindingSource userBindingSource;
@@ -332,5 +338,6 @@ namespace SysDatCMS
         private System.Windows.Forms.BindingSource statusBindingSource;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.Utils.Behaviors.Common.DisabledCellEvents disabledCellEvents1;
+        private DevExpress.XtraEditors.RadioGroup StatusGroup;
     }
 }

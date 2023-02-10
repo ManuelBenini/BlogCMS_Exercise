@@ -80,12 +80,15 @@
       <DependentUpon>ArticlesOrUsersDataGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Article.cs" />
+    <Compile Include="Classes\CMSHelper.cs" />
     <Compile Include="Classes\CMSState.cs" />
     <Compile Include="Classes\DbHelper.cs" />
     <Compile Include="Classes\ArticleImage.cs" />
     <Compile Include="Classes\Role.cs" />
     <Compile Include="Classes\Status.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Enums\RoleEnum.cs" />
+    <Compile Include="Enums\StatusEnum.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

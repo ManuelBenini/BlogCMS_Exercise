@@ -87,12 +87,9 @@ namespace SysDatCMS.Classes
                     if (Id > 0)
                     {
                         cmd.Parameters.AddWithValue("@Id", Id);
-                        cmd.Parameters.AddWithValue("@RoleId", RoleId);
                     }
-                    else
-                    {
-                        cmd.Parameters.AddWithValue("@Password", Password);
-                    }
+                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@RoleId", RoleId);
                     cmd.Parameters.AddWithValue("@Name", Name);
                     cmd.Parameters.AddWithValue("@Surname", Surname);
                     cmd.Parameters.AddWithValue("@Email", Email);
@@ -122,10 +119,8 @@ namespace SysDatCMS.Classes
                                 dr["Password"].ToString(),
                                 new Role((int)dr["RoleId"], dr["RoleName"].ToString()));
                         }
-                        else
-                        {
-                            return null;
-                        }
+                        
+                        return null;
                     }
                 }
             }

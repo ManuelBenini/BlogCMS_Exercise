@@ -64,10 +64,10 @@ namespace SysDatCMS
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(498, 244);
+            this.labelControl1.Location = new System.Drawing.Point(581, 300);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 23);
+            this.labelControl1.Size = new System.Drawing.Size(62, 28);
             this.labelControl1.TabIndex = 41;
             this.labelControl1.Text = "Email:";
             // 
@@ -82,10 +82,10 @@ namespace SysDatCMS
             this.VisualizeUsersBtn.Appearance.Options.UseBorderColor = true;
             this.VisualizeUsersBtn.Appearance.Options.UseFont = true;
             this.VisualizeUsersBtn.Appearance.Options.UseForeColor = true;
-            this.VisualizeUsersBtn.Location = new System.Drawing.Point(649, 431);
+            this.VisualizeUsersBtn.Location = new System.Drawing.Point(757, 530);
             this.VisualizeUsersBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VisualizeUsersBtn.Name = "VisualizeUsersBtn";
-            this.VisualizeUsersBtn.Size = new System.Drawing.Size(187, 34);
+            this.VisualizeUsersBtn.Size = new System.Drawing.Size(218, 42);
             this.VisualizeUsersBtn.TabIndex = 8;
             this.VisualizeUsersBtn.Text = "Visualizzazione utenti";
             this.VisualizeUsersBtn.Click += new System.EventHandler(this.VisualizeUsersBtn_Click);
@@ -101,33 +101,37 @@ namespace SysDatCMS
             this.RegistrationBtn.Appearance.Options.UseBorderColor = true;
             this.RegistrationBtn.Appearance.Options.UseFont = true;
             this.RegistrationBtn.Appearance.Options.UseForeColor = true;
-            this.RegistrationBtn.Location = new System.Drawing.Point(475, 431);
+            this.RegistrationBtn.Location = new System.Drawing.Point(554, 530);
             this.RegistrationBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegistrationBtn.Name = "RegistrationBtn";
-            this.RegistrationBtn.Size = new System.Drawing.Size(95, 34);
+            this.RegistrationBtn.Size = new System.Drawing.Size(111, 42);
             this.RegistrationBtn.TabIndex = 6;
             this.RegistrationBtn.Text = "Registrati";
             this.RegistrationBtn.Click += new System.EventHandler(this.RegistrationBtn_Click);
             // 
             // surnameField
             // 
-            this.surnameField.Location = new System.Drawing.Point(554, 180);
+            this.surnameField.Location = new System.Drawing.Point(646, 222);
             this.surnameField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.surnameField.Name = "surnameField";
             this.surnameField.Properties.AutoHeight = false;
-            this.surnameField.Size = new System.Drawing.Size(282, 29);
+            this.surnameField.Properties.Mask.EditMask = "(\\p{L}+\\s?)*";
+            this.surnameField.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.surnameField.Properties.Mask.ShowPlaceHolders = false;
+            this.surnameField.Size = new System.Drawing.Size(329, 36);
             this.surnameField.TabIndex = 2;
-            this.surnameField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnameField_KeyPress);
             // 
             // nameField
             // 
-            this.nameField.Location = new System.Drawing.Point(554, 129);
+            this.nameField.Location = new System.Drawing.Point(646, 159);
             this.nameField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameField.Name = "nameField";
             this.nameField.Properties.AutoHeight = false;
-            this.nameField.Size = new System.Drawing.Size(285, 29);
+            this.nameField.Properties.Mask.EditMask = "(\\p{L}+\\s?)*";
+            this.nameField.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.nameField.Properties.Mask.ShowPlaceHolders = false;
+            this.nameField.Size = new System.Drawing.Size(332, 36);
             this.nameField.TabIndex = 1;
-            this.nameField.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameField_KeyPress);
             // 
             // labelControl6
             // 
@@ -135,10 +139,10 @@ namespace SysDatCMS
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(494, 129);
+            this.labelControl6.Location = new System.Drawing.Point(576, 159);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(56, 23);
+            this.labelControl6.Size = new System.Drawing.Size(66, 28);
             this.labelControl6.TabIndex = 40;
             this.labelControl6.Text = "Nome:";
             // 
@@ -148,10 +152,10 @@ namespace SysDatCMS
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Appearance.Options.UseForeColor = true;
-            this.labelControl5.Location = new System.Drawing.Point(465, 297);
+            this.labelControl5.Location = new System.Drawing.Point(542, 366);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(85, 23);
+            this.labelControl5.Size = new System.Drawing.Size(103, 28);
             this.labelControl5.TabIndex = 39;
             this.labelControl5.Text = "Password:";
             // 
@@ -161,10 +165,10 @@ namespace SysDatCMS
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(463, 181);
+            this.labelControl4.Location = new System.Drawing.Point(540, 223);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(86, 23);
+            this.labelControl4.Size = new System.Drawing.Size(103, 28);
             this.labelControl4.TabIndex = 38;
             this.labelControl4.Text = "Cognome:";
             // 
@@ -179,10 +183,10 @@ namespace SysDatCMS
             this.ReturnToLoginBtn.Appearance.Options.UseBorderColor = true;
             this.ReturnToLoginBtn.Appearance.Options.UseFont = true;
             this.ReturnToLoginBtn.Appearance.Options.UseForeColor = true;
-            this.ReturnToLoginBtn.Location = new System.Drawing.Point(717, 40);
+            this.ReturnToLoginBtn.Location = new System.Drawing.Point(836, 49);
             this.ReturnToLoginBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ReturnToLoginBtn.Name = "ReturnToLoginBtn";
-            this.ReturnToLoginBtn.Size = new System.Drawing.Size(119, 34);
+            this.ReturnToLoginBtn.Size = new System.Drawing.Size(139, 42);
             this.ReturnToLoginBtn.TabIndex = 9;
             this.ReturnToLoginBtn.Text = "Torna al login";
             this.ReturnToLoginBtn.Click += new System.EventHandler(this.ReturnToLoginBtn_Click);
@@ -193,39 +197,39 @@ namespace SysDatCMS
             this.FormTitle.Appearance.ForeColor = System.Drawing.Color.Black;
             this.FormTitle.Appearance.Options.UseFont = true;
             this.FormTitle.Appearance.Options.UseForeColor = true;
-            this.FormTitle.Location = new System.Drawing.Point(374, 40);
+            this.FormTitle.Location = new System.Drawing.Point(436, 49);
             this.FormTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FormTitle.Name = "FormTitle";
-            this.FormTitle.Size = new System.Drawing.Size(142, 29);
+            this.FormTitle.Size = new System.Drawing.Size(178, 36);
             this.FormTitle.TabIndex = 33;
             this.FormTitle.Text = "Registrazione";
             // 
             // emailField
             // 
-            this.emailField.Location = new System.Drawing.Point(555, 240);
+            this.emailField.Location = new System.Drawing.Point(647, 295);
             this.emailField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailField.Name = "emailField";
             this.emailField.Properties.AutoHeight = false;
-            this.emailField.Size = new System.Drawing.Size(282, 29);
+            this.emailField.Size = new System.Drawing.Size(329, 36);
             this.emailField.TabIndex = 3;
             // 
             // passwordField
             // 
-            this.passwordField.Location = new System.Drawing.Point(556, 295);
+            this.passwordField.Location = new System.Drawing.Point(649, 363);
             this.passwordField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordField.Name = "passwordField";
             this.passwordField.Properties.AutoHeight = false;
             this.passwordField.Properties.UseSystemPasswordChar = true;
-            this.passwordField.Size = new System.Drawing.Size(282, 29);
+            this.passwordField.Size = new System.Drawing.Size(329, 36);
             this.passwordField.TabIndex = 4;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SysDatCMS.Properties.Resources.clipart2600984;
-            this.pictureBox1.Location = new System.Drawing.Point(23, 101);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 124);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(417, 308);
+            this.pictureBox1.Size = new System.Drawing.Size(486, 379);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
@@ -241,10 +245,10 @@ namespace SysDatCMS
             this.deleteUserBtn.Appearance.Options.UseBorderColor = true;
             this.deleteUserBtn.Appearance.Options.UseFont = true;
             this.deleteUserBtn.Appearance.Options.UseForeColor = true;
-            this.deleteUserBtn.Location = new System.Drawing.Point(575, 431);
+            this.deleteUserBtn.Location = new System.Drawing.Point(671, 530);
             this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deleteUserBtn.Name = "deleteUserBtn";
-            this.deleteUserBtn.Size = new System.Drawing.Size(69, 34);
+            this.deleteUserBtn.Size = new System.Drawing.Size(80, 42);
             this.deleteUserBtn.TabIndex = 7;
             this.deleteUserBtn.Text = "Elimina";
             this.deleteUserBtn.Visible = false;
@@ -260,16 +264,17 @@ namespace SysDatCMS
             this.roleLabel.Appearance.ForeColor = System.Drawing.Color.Black;
             this.roleLabel.Appearance.Options.UseFont = true;
             this.roleLabel.Appearance.Options.UseForeColor = true;
-            this.roleLabel.Location = new System.Drawing.Point(494, 347);
+            this.roleLabel.Location = new System.Drawing.Point(576, 427);
             this.roleLabel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Size = new System.Drawing.Size(54, 23);
+            this.roleLabel.Size = new System.Drawing.Size(64, 28);
             this.roleLabel.TabIndex = 43;
             this.roleLabel.Text = "Ruolo:";
             // 
             // RoleLookUpEdit
             // 
-            this.RoleLookUpEdit.Location = new System.Drawing.Point(556, 344);
+            this.RoleLookUpEdit.Location = new System.Drawing.Point(649, 423);
+            this.RoleLookUpEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RoleLookUpEdit.Name = "RoleLookUpEdit";
             this.RoleLookUpEdit.Properties.AutoHeight = false;
             this.RoleLookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -278,7 +283,7 @@ namespace SysDatCMS
             this.RoleLookUpEdit.Properties.DisplayMember = "Name";
             this.RoleLookUpEdit.Properties.KeyMember = "Id";
             this.RoleLookUpEdit.Properties.NullText = "[Value is null]";
-            this.RoleLookUpEdit.Size = new System.Drawing.Size(281, 32);
+            this.RoleLookUpEdit.Size = new System.Drawing.Size(328, 39);
             this.RoleLookUpEdit.TabIndex = 5;
             // 
             // roleBindingSource
@@ -290,9 +295,9 @@ namespace SysDatCMS
             this.AcceptButton = this.RegistrationBtn;
             this.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 489);
+            this.ClientSize = new System.Drawing.Size(1001, 602);
             this.Controls.Add(this.RoleLookUpEdit);
             this.Controls.Add(this.roleLabel);
             this.Controls.Add(this.deleteUserBtn);

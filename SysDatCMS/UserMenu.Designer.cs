@@ -83,10 +83,10 @@ namespace SysDatCMS
             this.FormTitle.Appearance.ForeColor = System.Drawing.Color.Black;
             this.FormTitle.Appearance.Options.UseFont = true;
             this.FormTitle.Appearance.Options.UseForeColor = true;
-            this.FormTitle.Location = new System.Drawing.Point(327, 25);
+            this.FormTitle.Location = new System.Drawing.Point(381, 31);
             this.FormTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FormTitle.Name = "FormTitle";
-            this.FormTitle.Size = new System.Drawing.Size(169, 29);
+            this.FormTitle.Size = new System.Drawing.Size(211, 36);
             this.FormTitle.TabIndex = 2;
             this.FormTitle.Text = "Menù personale";
             // 
@@ -101,10 +101,10 @@ namespace SysDatCMS
             this.LogoutBtn.Appearance.Options.UseBorderColor = true;
             this.LogoutBtn.Appearance.Options.UseFont = true;
             this.LogoutBtn.Appearance.Options.UseForeColor = true;
-            this.LogoutBtn.Location = new System.Drawing.Point(688, 25);
+            this.LogoutBtn.Location = new System.Drawing.Point(803, 31);
             this.LogoutBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LogoutBtn.Name = "LogoutBtn";
-            this.LogoutBtn.Size = new System.Drawing.Size(119, 34);
+            this.LogoutBtn.Size = new System.Drawing.Size(139, 42);
             this.LogoutBtn.TabIndex = 5;
             this.LogoutBtn.Text = "Logout";
             this.LogoutBtn.Click += new System.EventHandler(this.LogoutBtn_Click);
@@ -112,7 +112,7 @@ namespace SysDatCMS
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::SysDatCMS.Properties.Resources.login;
-            this.pictureEdit1.Location = new System.Drawing.Point(10, 10);
+            this.pictureEdit1.Location = new System.Drawing.Point(12, 12);
             this.pictureEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -122,14 +122,14 @@ namespace SysDatCMS
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(111, 84);
+            this.pictureEdit1.Size = new System.Drawing.Size(129, 103);
             this.pictureEdit1.TabIndex = 8;
             // 
             // ArticleGrid
             // 
             this.ArticleGrid.DataSource = this.articleBindingSource;
             this.ArticleGrid.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ArticleGrid.Location = new System.Drawing.Point(10, 110);
+            this.ArticleGrid.Location = new System.Drawing.Point(12, 135);
             this.ArticleGrid.MainView = this.ArticlesTable;
             this.ArticleGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ArticleGrid.Name = "ArticleGrid";
@@ -140,7 +140,7 @@ namespace SysDatCMS
             this.DeleteBtn,
             this.imagesPopupGalleryBtn,
             this.statusLookUpEditBtn});
-            this.ArticleGrid.Size = new System.Drawing.Size(797, 280);
+            this.ArticleGrid.Size = new System.Drawing.Size(930, 345);
             this.ArticleGrid.TabIndex = 1;
             this.ArticleGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ArticlesTable});
@@ -162,7 +162,6 @@ namespace SysDatCMS
             this.GoToModifyCol,
             this.RequestPublishCol,
             this.DeleteCol});
-            this.ArticlesTable.DetailHeight = 284;
             this.ArticlesTable.GridControl = this.ArticleGrid;
             this.ArticlesTable.Name = "ArticlesTable";
             this.ArticlesTable.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -171,38 +170,38 @@ namespace SysDatCMS
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 21;
+            this.colId.MinWidth = 24;
             this.colId.Name = "colId";
-            this.colId.Width = 81;
+            this.colId.Width = 94;
             // 
             // colTitolo
             // 
             this.colTitolo.FieldName = "Titolo";
-            this.colTitolo.MinWidth = 21;
+            this.colTitolo.MinWidth = 24;
             this.colTitolo.Name = "colTitolo";
             this.colTitolo.Visible = true;
             this.colTitolo.VisibleIndex = 0;
-            this.colTitolo.Width = 81;
+            this.colTitolo.Width = 94;
             // 
             // colTesto
             // 
             this.colTesto.FieldName = "Testo";
-            this.colTesto.MinWidth = 21;
+            this.colTesto.MinWidth = 24;
             this.colTesto.Name = "colTesto";
             this.colTesto.Visible = true;
             this.colTesto.VisibleIndex = 1;
-            this.colTesto.Width = 81;
+            this.colTesto.Width = 94;
             // 
             // colStatus
             // 
             this.colStatus.Caption = "Status";
             this.colStatus.ColumnEdit = this.statusLookUpEditBtn;
             this.colStatus.FieldName = "Status";
-            this.colStatus.MinWidth = 21;
+            this.colStatus.MinWidth = 24;
             this.colStatus.Name = "colStatus";
             this.colStatus.Visible = true;
             this.colStatus.VisibleIndex = 2;
-            this.colStatus.Width = 81;
+            this.colStatus.Width = 94;
             // 
             // statusLookUpEditBtn
             // 
@@ -222,11 +221,11 @@ namespace SysDatCMS
             // 
             this.UpdateCol.Caption = "Aggiorna";
             this.UpdateCol.ColumnEdit = this.UpdateBtn;
-            this.UpdateCol.MinWidth = 21;
+            this.UpdateCol.MinWidth = 24;
             this.UpdateCol.Name = "UpdateCol";
             this.UpdateCol.Visible = true;
             this.UpdateCol.VisibleIndex = 3;
-            this.UpdateCol.Width = 81;
+            this.UpdateCol.Width = 94;
             // 
             // UpdateBtn
             // 
@@ -241,11 +240,11 @@ namespace SysDatCMS
             // 
             this.GoToModifyCol.Caption = "Modifica nei dettagli";
             this.GoToModifyCol.ColumnEdit = this.GoToModifyBtn;
-            this.GoToModifyCol.MinWidth = 21;
+            this.GoToModifyCol.MinWidth = 24;
             this.GoToModifyCol.Name = "GoToModifyCol";
             this.GoToModifyCol.Visible = true;
             this.GoToModifyCol.VisibleIndex = 4;
-            this.GoToModifyCol.Width = 81;
+            this.GoToModifyCol.Width = 94;
             // 
             // GoToModifyBtn
             // 
@@ -260,11 +259,11 @@ namespace SysDatCMS
             // 
             this.RequestPublishCol.Caption = "Richiedi pubblicazione";
             this.RequestPublishCol.ColumnEdit = this.RequestPublishBtn;
-            this.RequestPublishCol.MinWidth = 21;
+            this.RequestPublishCol.MinWidth = 24;
             this.RequestPublishCol.Name = "RequestPublishCol";
             this.RequestPublishCol.Visible = true;
             this.RequestPublishCol.VisibleIndex = 5;
-            this.RequestPublishCol.Width = 81;
+            this.RequestPublishCol.Width = 94;
             // 
             // RequestPublishBtn
             // 
@@ -279,10 +278,10 @@ namespace SysDatCMS
             // 
             this.DeleteCol.Caption = "Elimina";
             this.DeleteCol.ColumnEdit = this.DeleteBtn;
+            this.DeleteCol.MinWidth = 23;
             this.DeleteCol.Name = "DeleteCol";
             this.DeleteCol.Visible = true;
             this.DeleteCol.VisibleIndex = 6;
-            this.DeleteCol.Width = 64;
             // 
             // DeleteBtn
             // 
@@ -302,30 +301,30 @@ namespace SysDatCMS
             // 
             // VisualizeUsersBtn
             // 
-            this.VisualizeUsersBtn.Location = new System.Drawing.Point(696, 419);
+            this.VisualizeUsersBtn.Location = new System.Drawing.Point(812, 516);
             this.VisualizeUsersBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VisualizeUsersBtn.Name = "VisualizeUsersBtn";
-            this.VisualizeUsersBtn.Size = new System.Drawing.Size(110, 24);
+            this.VisualizeUsersBtn.Size = new System.Drawing.Size(128, 30);
             this.VisualizeUsersBtn.TabIndex = 4;
             this.VisualizeUsersBtn.Text = "Visualizza gli utenti";
             this.VisualizeUsersBtn.Click += new System.EventHandler(this.VisualizeUsersBtn_Click);
             // 
             // CreateArticleBtn
             // 
-            this.CreateArticleBtn.Location = new System.Drawing.Point(373, 419);
+            this.CreateArticleBtn.Location = new System.Drawing.Point(435, 516);
             this.CreateArticleBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CreateArticleBtn.Name = "CreateArticleBtn";
-            this.CreateArticleBtn.Size = new System.Drawing.Size(99, 24);
+            this.CreateArticleBtn.Size = new System.Drawing.Size(115, 30);
             this.CreateArticleBtn.TabIndex = 3;
             this.CreateArticleBtn.Text = "Crea articolo";
             this.CreateArticleBtn.Click += new System.EventHandler(this.CreateArticleBtn_Click);
             // 
             // VisualizeArticlesBtn
             // 
-            this.VisualizeArticlesBtn.Location = new System.Drawing.Point(10, 419);
+            this.VisualizeArticlesBtn.Location = new System.Drawing.Point(12, 516);
             this.VisualizeArticlesBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VisualizeArticlesBtn.Name = "VisualizeArticlesBtn";
-            this.VisualizeArticlesBtn.Size = new System.Drawing.Size(135, 24);
+            this.VisualizeArticlesBtn.Size = new System.Drawing.Size(157, 30);
             this.VisualizeArticlesBtn.TabIndex = 2;
             this.VisualizeArticlesBtn.Text = "Visualizza tutti gli articoli";
             this.VisualizeArticlesBtn.Click += new System.EventHandler(this.VisualizeArticlesBtn_Click);
@@ -336,12 +335,12 @@ namespace SysDatCMS
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(334, 85);
+            this.labelControl2.Location = new System.Drawing.Point(421, 106);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(129, 19);
+            this.labelControl2.Size = new System.Drawing.Size(124, 24);
             this.labelControl2.TabIndex = 17;
-            this.labelControl2.Text = "Articoli pubblicati:";
+            this.labelControl2.Text = "Articoli creati:";
             // 
             // PublishedUserArticleNumber
             // 
@@ -349,10 +348,10 @@ namespace SysDatCMS
             this.PublishedUserArticleNumber.Appearance.ForeColor = System.Drawing.Color.Black;
             this.PublishedUserArticleNumber.Appearance.Options.UseFont = true;
             this.PublishedUserArticleNumber.Appearance.Options.UseForeColor = true;
-            this.PublishedUserArticleNumber.Location = new System.Drawing.Point(473, 85);
+            this.PublishedUserArticleNumber.Location = new System.Drawing.Point(552, 105);
             this.PublishedUserArticleNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PublishedUserArticleNumber.Name = "PublishedUserArticleNumber";
-            this.PublishedUserArticleNumber.Size = new System.Drawing.Size(8, 19);
+            this.PublishedUserArticleNumber.Size = new System.Drawing.Size(10, 24);
             this.PublishedUserArticleNumber.TabIndex = 18;
             this.PublishedUserArticleNumber.Text = "x";
             // 
@@ -366,15 +365,14 @@ namespace SysDatCMS
             // 
             // disabledCellEvents1
             // 
-            this.disabledCellEvents1.ProcessingCell += new System.EventHandler<DevExpress.Utils.Behaviors.Common.ProcessCellEventArgs>(this.disabledCellEvents1_ProcessingCell);
             // 
             // UserMenu
             // 
             this.Appearance.BackColor = System.Drawing.Color.SkyBlue;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 453);
+            this.ClientSize = new System.Drawing.Size(954, 558);
             this.Controls.Add(this.PublishedUserArticleNumber);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.VisualizeArticlesBtn);

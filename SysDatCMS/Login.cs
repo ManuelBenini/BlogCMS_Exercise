@@ -9,9 +9,6 @@ namespace SysDatCMS
 {
     public partial class Login : DevExpress.XtraEditors.XtraForm
     {
-        private string EmailPattern = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
-        private string PwdPattern = @"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
-
         public Login()
         {
             InitializeComponent();
@@ -66,7 +63,7 @@ namespace SysDatCMS
             {
                 LoginEP.SetError(emailField, "Non lasciare il campo vuoto", ErrorType.Warning);
             }
-            else if (Regex.IsMatch(emailField.Text, EmailPattern) == false)
+            else if (Regex.IsMatch(emailField.Text, CMSHelper.EmailPattern) == false)
             {
                 LoginEP.SetError(emailField, "Inserire una mail valida", ErrorType.Warning);
             }
@@ -79,7 +76,7 @@ namespace SysDatCMS
             {
                 LoginEP.SetError(passwordField, "Non lasciare il campo vuoto", ErrorType.Warning);
             }
-            else if (Regex.IsMatch(passwordField.Text, PwdPattern) == false)
+            else if (Regex.IsMatch(passwordField.Text, CMSHelper.PwdPattern) == false)
             {
                 LoginEP.SetError(passwordField, "Inserire una password valida", ErrorType.Warning);
             }
@@ -92,7 +89,7 @@ namespace SysDatCMS
         }
         private void Login_Load(object sender, EventArgs e)
         {
-            emailField.Text = "manuelbenini1906@gmail.com";
+            emailField.Text = "manuelbenini1905@gmail.com";
             passwordField.Text = "123Stella";
         }
     }

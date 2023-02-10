@@ -2,6 +2,7 @@
 using DevExpress.XtraEditors.DXErrorProvider;
 using SysDatCMS.Classes;
 using System;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -136,6 +137,14 @@ namespace SysDatCMS
         private void FillForm()
         {
             var article = Article.GetArticleById(_idArticle);
+
+            if (article is null)
+            {
+                // fornisco messaggio d'errore la''utente e blocco l'esecuzione del restante codice
+
+                return;
+            }
+
             titleField.Text = article.Titolo;
             StatusGroup.SelectedIndex = article.Status.Id - 1;
             textField.Text = article.Testo;
@@ -144,9 +153,12 @@ namespace SysDatCMS
 
             for (int i = 0; i < article.Images.Count; i++)
             {
-                string imagePath = "c:\\Users\\mbenini.LOGICONE\\source\\repos\\SysDatCMS\\images\\" + article.Images[i].Name;
+                var imagePath = Directory.GetCurrentDirectory() + @"\" + ConfigurationManager.AppSettings["ImagesPath"];
 
-                articleImageSlider.Images.Add(Image.FromFile(imagePath));
+                using (FileStream stream = new FileStream(imagePath + @"\" + article.Images[i].Name, FileMode.Open))
+                {
+                    articleImageSlider.Images.Add(Image.FromStream(stream));
+                }
             }
         }
         private bool IsFormValid()
@@ -192,15 +204,6 @@ namespace SysDatCMS
 
             return !createArticleEP.HasErrors;
         }
-
-        //private string getRandomFileName()
-        //{
-        //    Random rd = new Random();
-        //    string ext = Path.GetExtension(ImageFileDialog.FileName);
-        //    int randomNumber = rd.Next();
-
-        //    return randomNumber + ext;
-        //}
         private void ArticleOperations_Load(object sender, EventArgs e)
         {
             //1-- > Contributor, 2-- > Manager, 3-- > Super admin
